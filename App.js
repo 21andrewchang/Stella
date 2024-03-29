@@ -1,12 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 export default function App() {
   return (
-    <SafeAreaView className="text-center">
-      <Text className="text-white">
-        Open up App.js to start working on your app!
-      </Text>
+    <SafeAreaView className="flex-1 justify-center items-center bg-white">
+      <Text className="font-bold text-black">Quickplay</Text>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
