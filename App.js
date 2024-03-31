@@ -1,37 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
-
-let option1 = "test";
-let option2 = "test";
-let option3 = "test";
-let option4 = "hello????";
+import Lesson from "./src/components/Lesson";
+import Modal from "react-native-modal";
 
 export default function App() {
+  const [isLessonVisible, setLessonVisible] = useState(false);
+
+  const toggleLessonModal = () => {
+    setLessonVisible(!isLessonVisible);
+  };
+
   return (
-    <SafeAreaView className="flex-1 justify-between items-center bg-white">
-      <View className="flex-1 justify-center p-4 w-full">
-        <View className="overflow-hidden h-full bg-black rounded-lg shadow-md">
-          <Text className="p-4 text-center text-white">Question 1</Text>
-        </View>
-      </View>
-      <View className="p-4 space-y-4 w-full">
-        <View className="flex flex-row justify-between space-x-4 h-20">
-          <TouchableOpacity className="flex justify-center items-center p-4 w-40 bg-black rounded-lg">
-            <Text className="font-bold text-white">{option1}</Text>
+    <SafeAreaView className="flex-1 items-center bg-white">
+      <TouchableOpacity onPress={toggleLessonModal}>
+        <Text>Show Lesson</Text>
+      </TouchableOpacity>
+      <Modal animationType="slide" isVisible={isLessonVisible}>
+        <SafeAreaView className="flex-1">
+          <TouchableOpacity onPress={toggleLessonModal}>
+            <Text>Close</Text>
           </TouchableOpacity>
-          <TouchableOpacity className="flex justify-center items-center p-4 w-40 bg-black rounded-lg">
-            <Text className="font-bold text-white">{option2}</Text>
-          </TouchableOpacity>
-        </View>
-        <View className="flex flex-row justify-between space-x-4 h-20">
-          <TouchableOpacity className="flex justify-center items-center p-4 w-40 bg-black rounded-lg">
-            <Text className="font-bold text-white">{option3}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="flex justify-center items-center p-4 w-40 bg-black rounded-lg">
-            <Text className="font-bold text-white">{option4}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+          <Lesson />
+        </SafeAreaView>
+      </Modal>
     </SafeAreaView>
   );
 }
