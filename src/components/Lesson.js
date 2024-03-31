@@ -9,7 +9,7 @@ let option4 = "hello????";
 export default function Lesson() {
   return (
     <View className="flex-1">
-      <View className="flex-1 justify-center p-4 w-full">
+      <View className="flex-1 justify-center py-4 w-full">
         <View className="overflow-hidden h-full bg-black rounded-lg shadow-md">
           <Text className="p-4 text-center text-white">Question 1</Text>
         </View>
